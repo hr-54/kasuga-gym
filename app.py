@@ -12,10 +12,10 @@ file_schedule = "schedule_2026-01.csv"
 file_calendar="calendar_2026-01.png"
 file_gantt = "gantt_2026-01.png"
 file_monthly_summary = "monthly_summary_2026-01.png"
-#file_group_schedule ="group_schedule_2026-01.png"
+file_group_schedule ="group_schedule_2026-01.png"
 
 # タブの作成：tab1で検索、tab2で全体図
-tab1, tab2, tab3 = st.tabs(["🔍 予約を検索・確認", "カレンダー","利用時間全体像"])
+tab1, tab2, tab3, tab4 = st.tabs(["🔍 予約を検索・確認", "カレンダー","利用時間全体像","団体別利用時間"])
 
 # --- Tab 1: スケジュール検索 ---
 with tab1:
@@ -96,4 +96,13 @@ with tab3:
         st.image(file_monthly_summary, use_container_width=True)
     else:
         st.info("画像 (monthly_summary_2026-01.png) が見つかりません。")
+
+#Tab 4: 団体別
+with tab4:
+    st.header("団体別利用時間")
+    if os.path.exists(file_group_schedule):
+        # 大きく表示
+        st.image(file_group_schedule, use_container_width=True)
+    else:
+        st.info("画像 (group_schedule_2026-01.png) が見つかりません。")
 
