@@ -4,7 +4,7 @@ import os
 import re
 
 # 画面幅を広く使う設定
-st.set_page_config(page_title="春日体育館 予約検索", page_icon="🏀", layout="wide")
+st.set_page_config(page_title="春日体育館 予約検索", page_icon="📅", layout="wide")
 
 st.title("春日体育館 予約管理")
 
