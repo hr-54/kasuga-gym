@@ -8,11 +8,16 @@ st.set_page_config(page_title="春日体育館 予約検索", page_icon="📅", 
 
 st.title("春日体育館 予約管理")
 
-file_schedule = "schedule_2026-01.csv"
-file_calendar="calendar_2026-01.png"
-file_gantt = "gantt_2026-01.png"
-file_monthly_summary = "monthly_summary_2026-01.png"
-file_group_schedule ="group_schedule_2026-01.png"
+# file_schedule = "schedule_2026-01.csv"
+# file_calendar="calendar_2026-01.png"
+# file_gantt = "gantt_2026-01.png"
+# file_monthly_summary = "monthly_summary_2026-01.png"
+# file_group_schedule ="group_schedule_2026-01.png"
+file_schedule = "schedule_2026-02.csv"
+file_calendar="calendar_2026-02.png"
+file_gantt = "gantt_2026-02.png"
+file_monthly_summary = "monthly_summary_2026-02.png"
+file_group_schedule ="group_schedule_2026-02.png"
 
 # タブの作成：tab1で検索、tab2で全体図
 tab1, tab2, tab3, tab4 = st.tabs(["🔍 予約を検索・確認", "カレンダー","利用時間全体像","団体別利用時間"])
@@ -74,12 +79,13 @@ with tab1:
 
 # --- Tab 2: 全体把握図 ---
 with tab2:
-    st.header("🗓 1月分 全体スケジュールカレンダー")
+    #st.header("🗓 1月分 全体スケジュールカレンダー")
+    st.header("2月分 全体スケジュールカレンダー")
     if os.path.exists(file_calendar):
         # 大きく表示
         st.image(file_calendar, use_container_width=True, caption="カレンダー")
     else:
-        st.info("カレンダー画像 (calendar_2026-01.png) が見つかりません。")
+        st.info("カレンダー画像 (calendar_2026-02.png) が見つかりません。")
 
 # --- Tab 3: 全体把握図 ---
 with tab3:
@@ -88,14 +94,14 @@ with tab3:
         # 大きく表示
         st.image(file_gantt, use_container_width=True, caption="ガントチャート（全体図）")
     else:
-        st.info("画像 (gantt_2026-01.png) が見つかりません。")
+        st.info("画像 (gantt_2026-02.png) が見つかりません。")
 
     st.header("公平性")
     if os.path.exists(file_monthly_summary):
         # 大きく表示
         st.image(file_monthly_summary, use_container_width=True)
     else:
-        st.info("画像 (monthly_summary_2026-01.png) が見つかりません。")
+        st.info("画像 (monthly_summary_2026-02.png) が見つかりません。")
 
 #Tab 4: 団体別
 with tab4:
@@ -104,5 +110,4 @@ with tab4:
         # 大きく表示
         st.image(file_group_schedule, use_container_width=True)
     else:
-        st.info("画像 (group_schedule_2026-01.png) が見つかりません。")
-
+        st.info("画像 (group_schedule_2026-02.png) が見つかりません。")
