@@ -1,3 +1,33 @@
+st.markdown(
+    """
+    <style>
+    /* 右上の GitHub アイコン (Fork / Github link) を消す */
+    #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(2) {
+        display: none !important;
+    }
+    header[data-testid="stHeader"] a {
+        display: none !important;
+    }
+
+    /* 右下の 青い丸いアイコン (Viewer Badge) を消す */
+    [data-testid="stViewerBadge"] {
+        display: none !important;
+    }
+
+    /* 右上の 三点リーダー（三本線メニュー）も念のため消す */
+    #MainMenu {
+        visibility: hidden;
+    }
+
+    /* 下部のフッターを消す */
+    footer {
+        visibility: hidden;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 import streamlit as st
 import pandas as pd
 import os
