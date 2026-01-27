@@ -1,3 +1,8 @@
+import streamlit as st
+import pandas as pd
+import os
+import re
+
 st.markdown(
     """
     <style>
@@ -27,11 +32,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-import streamlit as st
-import pandas as pd
-import os
-import re
 
 # 画面幅を広く使う設定
 st.set_page_config(page_title="春日体育館 予約検索", page_icon="📅", layout="wide")
