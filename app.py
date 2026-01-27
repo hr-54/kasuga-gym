@@ -6,32 +6,35 @@ import re
 st.markdown(
     """
     <style>
-    /* --- 1. 右上のヘッダーエリアを完全に隠す --- */
+    /* 1. 右上のヘッダー全体を消す */
     header[data-testid="stHeader"] {
-        visibility: hidden;
-        height: 0%;
+        display: none !important;
     }
 
-    /* --- 2. 右下のしぶといアイコンを強制非表示にする --- */
-    /* 特定のクラス名ではなく「右下に固定されている要素」を
-       ターゲットにして、強制的に透明度をゼロにします。
-    */
-    div[data-testid="stStatusWidget"],
+    /* 2. 右下のバッジ・ステータス・アイコンを全て強制非表示 */
+    /* クラス名やIDに関わらず、画面右下に配置される要素をまとめて消します */
+    [data-testid="stStatusWidget"],
     [data-testid="stViewerBadge"],
+    .viewerBadge_container__1QS1n,
     div[class*="viewerBadge"],
-    div[class*="StreamlitBadge"] {
+    div[class*="StreamlitBadge"],
+    div[class*="st-emotion-cache"] > div[role="img"] {
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
+        pointer-events: none !important;
     }
 
-    /* --- 3. フッターとメニューも引き続き非表示 --- */
-    #MainMenu { visibility: hidden; }
-    footer { visibility: hidden; }
+    /* 3. 画面の右下隅にある「浮いている要素」を特定して消す */
+    div[style*="bottom: 0px"][style*="right: 0px"],
+    div[style*="bottom: 20px"][style*="right: 20px"] {
+        display: none !important;
+    }
 
-    /* 画面下の余白を調整して、アイコンがあった場所を埋める */
-    .stApp {
-        margin-bottom: -2rem;
+    /* 4. フッターを消す */
+    footer {
+        visibility: hidden;
+        display: none !important;
     }
     </style>
     """,
