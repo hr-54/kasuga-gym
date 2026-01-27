@@ -6,28 +6,33 @@ import re
 st.markdown(
     """
     <style>
-    /* --- 右上の GitHub アイコン (丸いアイコン) を消す --- */
-    /* リンク（aタグ）そのものを非表示にします */
-    header[data-testid="stHeader"] a {
-        display: none !important;
-    }
-    /* Forkボタンや丸いアイコンの親要素を非表示にします */
-    [data-testid="stHeader"] > div:last-child {
-        display: none !important;
+    /* --- 1. 右上のヘッダーエリアを完全に隠す --- */
+    header[data-testid="stHeader"] {
+        visibility: hidden;
+        height: 0%;
     }
 
-    /* --- 右下の 青い丸いアイコン (Viewer Badge) を消す --- */
-    /* クラス名が変わっても消えるように、複数指定しています */
+    /* --- 2. 右下のしぶといアイコンを強制非表示にする --- */
+    /* 特定のクラス名ではなく「右下に固定されている要素」を
+       ターゲットにして、強制的に透明度をゼロにします。
+    */
+    div[data-testid="stStatusWidget"],
     [data-testid="stViewerBadge"],
-    .viewerBadge_container__1QS1n,
-    div[class*="viewerBadge"] {
+    div[class*="viewerBadge"],
+    div[class*="StreamlitBadge"] {
         display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
     }
 
-    /* --- その他（メニュー・フッター） --- */
+    /* --- 3. フッターとメニューも引き続き非表示 --- */
     #MainMenu { visibility: hidden; }
     footer { visibility: hidden; }
-    header { visibility: hidden; } /* ヘッダー自体を消すとより確実です */
+
+    /* 画面下の余白を調整して、アイコンがあった場所を埋める */
+    .stApp {
+        margin-bottom: -2rem;
+    }
     </style>
     """,
     unsafe_allow_html=True
