@@ -6,28 +6,28 @@ import re
 st.markdown(
     """
     <style>
-    /* 右上の GitHub アイコン (Fork / Github link) を消す */
-    #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(2) {
-        display: none !important;
-    }
+    /* --- 右上の GitHub アイコン (丸いアイコン) を消す --- */
+    /* リンク（aタグ）そのものを非表示にします */
     header[data-testid="stHeader"] a {
         display: none !important;
     }
-
-    /* 右下の 青い丸いアイコン (Viewer Badge) を消す */
-    [data-testid="stViewerBadge"] {
+    /* Forkボタンや丸いアイコンの親要素を非表示にします */
+    [data-testid="stHeader"] > div:last-child {
         display: none !important;
     }
 
-    /* 右上の 三点リーダー（三本線メニュー）も念のため消す */
-    #MainMenu {
-        visibility: hidden;
+    /* --- 右下の 青い丸いアイコン (Viewer Badge) を消す --- */
+    /* クラス名が変わっても消えるように、複数指定しています */
+    [data-testid="stViewerBadge"],
+    .viewerBadge_container__1QS1n,
+    div[class*="viewerBadge"] {
+        display: none !important;
     }
 
-    /* 下部のフッターを消す */
-    footer {
-        visibility: hidden;
-    }
+    /* --- その他（メニュー・フッター） --- */
+    #MainMenu { visibility: hidden; }
+    footer { visibility: hidden; }
+    header { visibility: hidden; } /* ヘッダー自体を消すとより確実です */
     </style>
     """,
     unsafe_allow_html=True
